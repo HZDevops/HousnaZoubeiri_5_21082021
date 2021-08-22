@@ -5,34 +5,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.png">
+    <script src="https://kit.fontawesome.com/330caa293f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
     <title>Orinoco : Ours en peluche</title>
 </head>
 
 <body>
     <header>
-        <nav class="nav-header">
-            <a href="index.html" id="nav-header-logo">
-                <img src="images/logo-orinoco.jpg" alt="Logo de Orinoco">
-            </a>
-            <div id="nav-header-produits" class="nav-link flexbox">
-                <a href="#produits">Produits</a>
-            </div>
+        <div id="logo-orinoco"><img src="images/logo-orinoco.jpg" alt="Logo de Orinoco"></div>
+        <nav>
+           <div class="navicon">
+                <div></div>
+              </div>
+              <a href="produit.html">Produits</a>
+              <a href="panier.html">Panier</a>
+              <a href="commande.html">Commande</a>
         </nav>
-    </header>
-    <main id="produits">
-        <h1>Ours en peluche</h1>
+        </header>
+
+    <main>
+        <h1> Ours en peluche</h1>
         <section id="teddies">
-            <h2>Ours Teddy</h2>
-            <div id=teddy-one></div> 
-            <div id=teddy-two></div>  
-            <div id=teddy-three></div>  
-            <div id=teddy-four></div>  
-            <div id=teddy-five></div>   
-            <div id="error-message"></div>         
-        </scetion>
-        
-        <script src="script.js"></script>
+            <h2>Teddy</h2>
+            <div id=teddy-one class="product-card"></div>
+            <div id=teddy-two class="product-card"></div>
+            <div id=teddy-three class="product-card"></div>
+            <div id=teddy-four class="product-card"></div>
+            <div id=teddy-five class="product-card"></div>
+            <div id="error-message"></div>
+        </section>
     </main>
-</body>
+    <script src="script.js"></script>
+  </body>
 
 </html>

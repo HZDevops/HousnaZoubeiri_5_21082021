@@ -1,0 +1,129 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#logo-orinoco{
+    background: rgba(219, 170, 219, 0.2);
+}
+header img {
+    width: 50%;
+}
+
+header nav {
+    display: flex;
+    background: rgba(219, 170, 219, 0.2);
+
+}
+
+nav {
+    width: auto;
+    background: white;
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-clip-path: circle(24px at 30px 24px);
+    clip-path: circle(24px at 32px 24px);
+    -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
+    transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
+}
+
+nav:hover {
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-transition-duration: 0.75s;
+    transition-duration: 0.75s;
+    -webkit-clip-path: circle(390px at 225px 24px);
+    clip-path: circle(390px at 150px 24px);
+}
+
+a {
+    display: block;
+    line-height: 50px;
+    padding: 0 20px;
+    color: inherit;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    color: black;
+    font-weight: bold;
+}
+
+a:active {
+    background: #ffca28;
+}
+
+.navicon {
+    padding: 23px 20px;
+    cursor: pointer;
+    -webkit-transform-origin: 32px 24px;
+    -ms-transform-origin: 32px 24px;
+    transform-origin: 32px 24px;
+}
+
+.navicon div {
+    position: relative;
+    width: 20px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.87);
+}
+
+.navicon div:before,
+.navicon div:after {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.87);
+    position: absolute;
+}
+
+.navicon div:before {
+    top: -7px;
+}
+
+.navicon div:after {
+    top: 7px;
+}
+
+h2 {
+    color: blueviolet;
+    /*rgba(238, 139, 238, 0.2);*/
+}
+
+/*** Card product appearance***/
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    border: solid 0.3em white;
+    border-radius: 20px;
+    box-shadow: 6px 6px 6px 6px #f5f4f4;
+    margin-bottom: 20px;
+}
+
+.product-card img {
+    border-radius: 20px 20px 0 0;
+}
+
+.product-card h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.product-card p {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.product-card span {
+    margin-bottom: 10px;
+    color: blueviolet;
+    font-weight: bold;
+}
