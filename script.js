@@ -27,3 +27,8 @@ fetch('http://localhost:3000/api/teddies/')
     // Une erreur est survenue
     document.getElementById("error-message").innerText = "Produit inaccesible"
   });
+
+const clickTeddy = document.getElementsByClass('product-card');    
+clickTeddy.addEventListener('click', function() {          
+    elt.innerHTML = "C'est cliqué !";               
+});
