@@ -37,7 +37,7 @@ nav:hover {
     clip-path: circle(390px at 150px 24px);
 }
 
-a {
+nav a {
     display: block;
     line-height: 50px;
     padding: 0 18.2px;
@@ -50,7 +50,7 @@ a {
     font-size: 0.9rem;
 }
 
-a:hover {
+nav a:hover {
     color: black;
     font-weight: bold;
 }
@@ -123,4 +123,7 @@ h2 {
     margin-bottom: 10px;
     color: blueviolet;
     font-weight: bold;
+}
+.product-card:hover{
+    box-shadow: 6px 6px 6px 6px #d1d0d0;
 }
