@@ -94,7 +94,9 @@ h2 {
 }
 
 /*** Card product appearance***/
-
+#teddies ul{
+    padding-left:0;
+}
 .product-card {
     display: flex;
     flex-direction: column;

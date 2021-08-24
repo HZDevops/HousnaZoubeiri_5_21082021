@@ -1,34 +1,28 @@
-fetch('http://localhost:3000/api/teddies/')
+  fetch('http://localhost:3000/api/teddies/')
   .then(function (response) {
     if (response.ok) {
       return response.json();
     }
   })
-  .then(function (responseData) {
-   // Displaying Teddy One product
-   let teddyOne = document.getElementById ('teddy-one');
-   teddyOne.innerHTML = '<img src="'+ responseData[0].imageUrl +'"alt= ></img>' + '<h3>' + responseData[0].name +'</h3>'+ '<p>' + responseData[0].description +'</p>' +'<span>' + responseData[0].price + '</span>';
-  
-   let teddyTwo = document.getElementById ('teddy-two');
-   teddyTwo.innerHTML = '<img src="'+ responseData[1].imageUrl +'"alt= ></img>' + '<h3>' + responseData[1].name +'</h3>'+'<p>' + responseData[1].description +'</p>' +'<span>' + responseData[1].price + '</span>';
- 
-   let teddyThree = document.getElementById ('teddy-three');
-   teddyThree.innerHTML = '<img src="'+ responseData[2].imageUrl +'"alt= ></img>' + '<h3>' + responseData[2].name +'</h3>'+'<p>' + responseData[2].description +'</p>' +'<span>' + responseData[2].price + '</span>';
-  
-   let teddyFour = document.getElementById ('teddy-four');
-   teddyFour.innerHTML = '<img src="'+ responseData[3].imageUrl +'"alt= ></img>' + '<h3>' + responseData[3].name +'</h3>'+'<p>' + responseData[3].description +'</p>' +'<span>' + responseData[3].price + '</span>';
-   
-   let teddyFive = document.getElementById ('teddy-five');
-   teddyFive.innerHTML = '<img src="'+ responseData[4].imageUrl +'"alt= ></img>' + '<h3>' + responseData[4].name +'</h3>'+'<p>' + responseData[4].description +'</p>' +'<span>' + responseData[4].price + '</span>';
-  
+  .then(function (data) {
+    const teddies = data
+    const teddyListUl = document.getElementById('teddy-list')
+
+       // Version avec le forEach
+    teddies.forEach(function (teddy) {
+      teddyListUl.innerHTML += `
+        <a class="product-card">
+          <img src="${teddy.imageUrl}" alt="teddy" />
+          <h3>${teddy.name}</h3>
+          <p>${teddy.description}</p>
+          <span>${teddy.price} €</span>
+        </a>
+      `
+    })
   })
 
-  .catch(function(error) {
+  .catch(function (error) {
     // Une erreur est survenue
-    document.getElementById("error-message").innerText = "Produit inaccesible"
+    document.getElementById("error-message").innerText = "Produit inaccessible"
   });
-
-const clickTeddy = document.getElementsByClass('product-card');    
-clickTeddy.addEventListener('click', function() {          
-    elt.innerHTML = "C'est cliqué !";               
-});
+  
