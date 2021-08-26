@@ -1,17 +1,16 @@
   fetch('http://localhost:3000/api/teddies/')
   .then(function (response) {
     if (response.ok) {
-      return response.json();
+    return response.json();
     }
-  })
+   })
   .then(function (data) {
     const teddies = data
     const teddyListUl = document.getElementById('teddy-list')
 
-       // Version avec le forEach
-    teddies.forEach(function (teddy) {
+      teddies.forEach(function (teddy) {
       teddyListUl.innerHTML += `
-        <a class="product-card">
+        <a href="produit.html?id=${teddy._id}" id=${teddy._id} class="product-card">
           <img src="${teddy.imageUrl}" alt="teddy" />
           <h3>${teddy.name}</h3>
           <p>${teddy.description}</p>
