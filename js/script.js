@@ -10,11 +10,11 @@
 
       teddies.forEach(function (teddy) {
       teddyListUl.innerHTML += `
-        <a href="produit.html?id=${teddy._id}" id=${teddy._id} class="product-card">
+        <a href="product.html?id=${teddy._id}" class="product-card">
           <img src="${teddy.imageUrl}" alt="teddy" />
           <h3>${teddy.name}</h3>
           <p>${teddy.description}</p>
-          <span>${teddy.price} €</span>
+          <span>${teddy.price/100} €</span>
         </a>
       `
     })
