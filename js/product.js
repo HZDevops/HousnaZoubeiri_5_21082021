@@ -18,7 +18,7 @@ fetch (`http://localhost:3000/api/teddies/${teddyId}`)
   })
   .then(function(data) {
     const teddyObject = data
-    console.log(teddyObject)
+  //console.log(teddyObject)
 
   // Displaying Selected Teddy in product.html
   const teddySelected = document.getElementById('teddy-selected')
@@ -36,27 +36,38 @@ fetch (`http://localhost:3000/api/teddies/${teddyId}`)
     teddyColor.appendChild(colorChoice).innerHTML += color
   })
 
-  // Getting Teddy's otption color
+  // Getting Teddy's option color value
   const teddyColor = document.getElementById('teddy-color')
   const teddyCustomized = teddyColor.value
   //console.log(teddyCustomized)
 
-  // Getting Teddy's selected data for shopping-cart
+  // Setting array to store Teddy's selected products 
+  let teddySelectedForStockage =[];
+
+  const teddyStockage = localStorage;
+
+  // Sending Teddy's selected products in stockage array before displaying in shopping-cart
   const sendButton = document.getElementById("send-btn")
   sendButton.addEventListener('click', function(event) {
     event.preventDefault()
    
-    let teddyAddToCart = {
+     let teddyAddToCart = {
      imageProduct : teddyObject.imageUrl,
      nomProduct : teddyObject.name,
      OptionProduct : teddyColor.value,
      quantity: 1,
      productPrice : teddyObject.price/100,
    }
-  console.log(teddyAddToCart)
- })
+   
+   teddySelectedForStockage.push (teddyAddToCart)
+   console.log(teddySelectedForStockage)
+   
+   teddyStockage.setItem("firstTeddy",JSON.stringify(teddySelectedForStockage))
+   
+   console.log(teddyStockage)
+    
+  })
 
 })
 
- 
  
