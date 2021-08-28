@@ -29,12 +29,34 @@ fetch (`http://localhost:3000/api/teddies/${teddyId}`)
     <p>${teddyObject.description}</p>
     <span>Prix:${teddyObject.price/100} €</span>
     `
-    // Displaying Teddy's colors choices
-  teddyObject.colors.forEach(function (color) {
+    // Displaying Teddy's colors
+    teddyObject.colors.forEach(function (color) {
     const teddyColor = document.getElementById('teddy-color')
     let colorChoice = document.createElement('option')
     teddyColor.appendChild(colorChoice).innerHTML += color
   })
+
+  // Getting Teddy's otption color
+  const teddyColor = document.getElementById('teddy-color')
+  const teddyCustomized = teddyColor.value
+  //console.log(teddyCustomized)
+
+  // Getting Teddy's selected data for shopping-cart
+  const sendButton = document.getElementById("send-btn")
+  sendButton.addEventListener('click', function(event) {
+    event.preventDefault()
+   
+    let teddyAddToCart = {
+     imageProduct : teddyObject.imageUrl,
+     nomProduct : teddyObject.name,
+     OptionProduct : teddyColor.value,
+     quantity: 1,
+     productPrice : teddyObject.price/100,
+   }
+  console.log(teddyAddToCart)
  })
 
-                   
+})
+
+ 
+ 
