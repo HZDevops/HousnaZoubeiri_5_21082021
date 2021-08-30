@@ -91,7 +91,6 @@ nav a:hover {
 
 h2 {
     color: blueviolet;
-    /*rgba(238, 139, 238, 0.2);*/
 }
 
 /*** Card product appearance***/
@@ -140,8 +139,8 @@ h2 {
     padding-right: 20px;
     padding-bottom: 20px;
 }
-#teddy-storage h2{
-font-size: 1.2rem;
+h2{
+width:50%;
 }
     /*** Card product appearance in shopping-cart***/
 .teddy-ordered{
@@ -161,7 +160,36 @@ font-size: 1.2rem;
     align-self: center;
     font-weight:bold;
 }
-#teddy-resume h2{
-    font-size:1.2rem;
+#shopping-cart-amount p{
+    color:blueviolet;
     margin-left: 20px;
+}
+#teddy-resume h2{
+    margin-top:50px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+#teddy-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+form{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+#teddy-form p,form,label,input{
+    width:85%;
+}
+#teddy-form p{
+    margin-top:0;
+    margin-bottom: 20px;
+}
+
+.form-style{
+    padding-top: 10px;
+    margin-bottom:30px;
+}
+#send-btn{
+    width:35%;
 }
