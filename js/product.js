@@ -48,6 +48,7 @@ fetch (`http://localhost:3000/api/teddies/${teddyId}`)
 
   // Sending Teddy's selected products in stockage array before displaying in shopping-cart
   const sendButton = document.getElementById("send-btn")
+
   sendButton.addEventListener('click', function(event) {
     event.preventDefault()
    
@@ -60,7 +61,7 @@ fetch (`http://localhost:3000/api/teddies/${teddyId}`)
    }
    
    teddySelectedForStockage.push (teddyAddToCart)
-   console.log(teddySelectedForStockage)
+   //console.log(teddySelectedForStockage)
    
    teddyStockage.setItem("firstTeddy",JSON.stringify(teddySelectedForStockage))
    
