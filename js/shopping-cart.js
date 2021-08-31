@@ -70,28 +70,25 @@ const sendButtonForm = document.getElementById("send-form-btn")
 
 sendButtonForm.addEventListener('click', function(event) {
   event.preventDefault()
- 
-    localStorage.setItem("customer-name",document.getElementById("customer-name").value)
-    //console.log(document.getElementById("customer-name").value)
-    localStorage.setItem("customer-address",document.getElementById("customer-address").value)
-    localStorage.setItem("customer-city",document.getElementById("customer-city").value)
-    localStorage.setItem("code-zip",document.getElementById("code-zip").value)
-    localStorage.setItem("customer-email",document.getElementById("customer-email").value)
 
-  //Putting form in a object before sending to server
-  const formToSend ={
-    name: localStorage.getItem("customer-name"),
-    adress: localStorage.getItem("customer-address"),
-    city: localStorage.getItem("customer-city"),
-    codeZip: localStorage.getItem("code-zip"),
-    email: localStorage.getItem("customer-email"),
+  //Getting form values in an object
+
+  const formValues ={
+    name: document.getElementById("customer-name").value,
+    adress: document.getElementById("customer-address").value,
+    city: document.getElementById("customer-city").value,
+    codeZip: document.getElementById("code-zip").value,
+    email: document.getElementById("customer-email").value
   }
-console.log(formToSend);
 
+//Putting form values in local Storage
+localStorage.setItem("formValues",JSON.stringify(formValues))
+    //console.log(document.getElementById("customer-name").value)
+   
 //Putting form and shopping-cart products in a object before sending to server
 const sendShoppingCartToServer = {
   teddyStockage,
-  formToSend,
+  formValues
 }
-console.log(sendShoppingCartToServer);
+//console.log(sendShoppingCartToServer);
   })
