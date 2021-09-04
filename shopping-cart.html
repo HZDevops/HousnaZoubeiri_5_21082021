@@ -20,24 +20,58 @@
     <header>
         <div id="logo-orinoco"><img src="images/logo-orinoco.jpg" alt="Logo de Orinoco"></div>
         <nav>
-           <div class="navicon">
+            <div class="navicon">
                 <div></div>
-              </div>
-              <a href="index.html">Accueil</a>
-              <a href="order.html">Commande</a>
+            </div>
+            <a href="index.html">Accueil</a>
+            <a href="order-confirmation.html">Commande</a>
         </nav>
-        </header>
+    </header>
     <main>
         <h1>Panier</h1>
         <section>
-        <article id="teddy-storage">
-            <h2>Récapitulatif</h2>
-        </article>
-        <div id=shopping-cart-amount></div>
+            <article id="teddy-storage">
+                <h2>Récapitulatif</h2>
+            </article>
+            <span id=shopping-cart-amount></span>
         </section>
         <section id="teddy-resume">
             <h2>Formulaire de commande</h2>
-            <article id="teddy-form"></article>
+            <p>Remplir le formulaire pour valider la commande</p>
+            <form name="orinocor-form" id="orinocor-form" method="post" onsubmit="return false">
+                <div >
+                    <label for="customer-name">Nom : </label><br />
+                    <input type="text" id="customer-name" name="customer-name" placeholder="Ex: Martin" required
+                        pattern="[a-zA-Z]{3,20}">
+                </div>
+                <div >
+                    <label for="customer-first-name">Prénom : </label><br />
+                    <input type="text" id="customer-first-name" name="customer-first-name" placeholder="Ex: Julien"
+                        required pattern="[a-zA-Z]{3,20}">
+                </div>
+                <div >
+                    <label for="customer-address">Adresse de livraison</label><br />
+                    <input type="text" id="customer-address" name="customer-address" placeholder="Ex: 25 rue des Lilas"
+                        required pattern="[0-9a-zA-Z ]{10,30}">
+                </div>
+                <div >
+                    <label for="customer-city">Ville</label><br />
+                    <input type="text" id="customer-city" name="customer-city" placeholder="Ex: Paris" required
+                        pattern="[a-zA-Z]{3,12}">
+                </div>
+                <div>
+                    <label for="code-zip">Code postal</label><br />
+                    <input type="text" id="code-zip" name="code-zip" placeholder="Ex: 75020" required
+                        pattern="[0-9]{5}">
+                </div>
+                <div>
+                    <label for="customer-email">Adresse e-mail</label>
+                    <input type="email" id="customer-email" name="customer-email" placeholder="Ex: monadresse@mail.com"
+                        required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                </div>
+                <button id="send-form-btn" type="submit" class="button" name="send-btn">Confirmer la commande</button>
+            </form>
+
         </section>
     </main>
     <footer></footer>

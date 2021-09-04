@@ -1,74 +1,75 @@
-//Getting URL query string
+//Get URL query string
 const queryStringUrlId = window.location.search;
-//console.log(queryStringUrlId)
 
 // Id extraction
-const urlSearchParams = new URLSearchParams (queryStringUrlId)
-//console.log(urlSearchParams)
+const urlSearchParams = new URLSearchParams(queryStringUrlId);
 
-const teddyId = urlSearchParams.get("id")
-//console.log(teddyId)
+const itemId = urlSearchParams.get('id');
 
-// Getting Selected Teddy data 
-fetch (`http://localhost:3000/api/teddies/${teddyId}`)
-.then(function (response) {
-  if (response.ok) {
-  return response.json();
+// Function to display item details on product page when item is selected
+function addItemToHtml(item) {
+  const itemHtmlContainer = document.getElementById('teddy-card');
+
+  itemHtmlContainer.innerHTML += `
+      <img src="${item.imageUrl}" alt="teddy-photo"/>
+      <h3>${item.name}</h3>
+      <p>${item.description}</p>
+      <span>Prix:${item.price / 100} €</span>
+    `;
+  // Display item's options
+  item.colors.forEach(function (color) {
+    const itemColorsSelect = document.getElementById('teddy-colors-select');
+    const colorOption = document.createElement('option');
+    itemColorsSelect.appendChild(colorOption).innerHTML += color;
+  });
+}
+
+// Function to get and save items in localStorage
+function addItemToLocalStorage(item) {
+  const itemInLocalStorage = JSON.parse(localStorage.getItem('item'));
+
+  if (itemInLocalStorage) {
+    itemInLocalStorage.push(item);
+    localStorage.setItem('item', JSON.stringify(itemInLocalStorage));
+  } else {
+    const itemInLocalStorage = [];
+    itemInLocalStorage.push(item);
+    localStorage.setItem('item', JSON.stringify(itemInLocalStorage));
+  }
+}
+
+// Get selected item data
+fetch(`http://localhost:3000/api/teddies/${itemId}`)
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
     }
   })
-  .then(function(data) {
-    const teddyObject = data
-  //console.log(teddyObject)
+  .then(function (data) {
+    const item = data;
 
-  // Displaying Selected Teddy in product.html
-  const teddySelected = document.getElementById('teddy-selected')
-    
-  teddySelected.innerHTML += `
-    <img src="${teddyObject.imageUrl}" alt="teddy"/>
-    <h3>${teddyObject.name}</h3>
-    <p>${teddyObject.description}</p>
-    <span>Prix:${teddyObject.price/100} €</span>
-    `
-    // Displaying Teddy's colors
-    teddyObject.colors.forEach(function (color) {
-    const teddyColor = document.getElementById('teddy-color')
-    let colorChoice = document.createElement('option')
-    teddyColor.appendChild(colorChoice).innerHTML += color
-  })
+    // Make item HTML card
+    addItemToHtml(item);
 
-  // Getting Teddy's option color value
-  const teddyColor = document.getElementById('teddy-color')
-  const teddyCustomized = teddyColor.value
-  //console.log(teddyCustomized)
+    // Add item on shopping-cart
+    const addItemButton = document.getElementById('add-item-btn');
+    addItemButton.addEventListener('click', function () {
+      const itemColorsSelect = document.getElementById('teddy-colors-select');
+      const itemNumber = document.getElementById('teddy-number').value;
 
-  // Setting array to store Teddy's selected products 
-  let teddySelectedForStockage =[];
+      if (!itemNumber || itemNumber == 0) {
+        alert('Veuillez renseigner la quantité de produits');
+        return false;
+      } else {
+        const selectedItem = {
+          item,
+          quantity: itemNumber,
+          option: itemColorsSelect.value,
+        };
 
-  const teddyStockage = localStorage;
-
-  // Sending Teddy's selected products in stockage array before displaying in shopping-cart
-  const sendButton = document.getElementById("send-btn")
-
-  sendButton.addEventListener('click', function(event) {
-    event.preventDefault()
-   
-     let teddyAddToCart = {
-     imageProduct : teddyObject.imageUrl,
-     nomProduct : teddyObject.name,
-     OptionProduct : teddyColor.value,
-     quantity: 1,
-     productPrice : teddyObject.price/100,
-   }
-   
-   teddySelectedForStockage.push (teddyAddToCart)
-   //console.log(teddySelectedForStockage)
-   
-   teddyStockage.setItem("firstTeddy",JSON.stringify(teddySelectedForStockage))
-   
-   console.log(teddyStockage)
-    
-  })
-
-})
-
- 
+        // Add item in localStorage
+        addItemToLocalStorage(selectedItem);
+        alert("L'article a été ajouté au panier");
+      }
+    });
+  });

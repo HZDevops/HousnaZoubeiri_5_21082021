@@ -5,9 +5,10 @@ header {
     flex-wrap: wrap;
 }
 
-#logo-orinoco{
+#logo-orinoco {
     background: rgba(219, 170, 219, 0.2);
 }
+
 header img {
     width: 50%;
     margin-left: 25%;
@@ -94,9 +95,10 @@ h2 {
 }
 
 /*** Card product appearance***/
-#teddies ul{
-    padding-left:0;
+#teddies ul {
+    padding-left: 0;
 }
+
 .product-card {
     display: flex;
     flex-direction: column;
@@ -126,70 +128,108 @@ h2 {
     color: blueviolet;
     font-weight: bold;
 }
-.product-card:hover{
+
+.product-card:hover {
     box-shadow: 6px 6px 6px 6px #d1d0d0;
 }
 
+/**** CSS for product page****/
+#teddy-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 15px;
+}
+
+.teddy-info {
+    width: 200px;
+}
+
+
 /**** CSS for shopping-cart page****/
 
-#teddy-storage{
+#teddy-storage {
     background-color: rgba(219, 170, 219, 0.2);
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
+    margin-bottom: 20px;
 }
-h2{
-width:50%;
+
+h2 {
+    width: 50%;
 }
-    /*** Card product appearance in shopping-cart***/
-.teddy-ordered{
+
+/*** Card product appearance in shopping-cart***/
+.teddy-ordered {
     display: flex;
     height: 100px;
     background-color: white;
     margin-bottom: 10px;
     margin-top: 20px;
 }
-.teddy-info{
-    width:50%;
+
+.teddy-ordered img {
+    width: 30%;
 }
-.teddy-info h3,p{
-    margin-bottom:0;
+
+.teddy-info {
+    width: 50%;
+    margin-left: 10px;
 }
-.teddy-price{
+
+.teddy-info h3,
+p {
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.teddy-price {
     align-self: center;
-    font-weight:bold;
+    font-weight: bold;
 }
-#shopping-cart-amount p{
-    color:blueviolet;
-    margin-left: 20px;
+
+#shopping-cart-amount {
+    color: blueviolet;
+    font-weight: bold;
+    margin-left: 150px;
 }
-#teddy-resume h2{
-    margin-top:50px;
+
+#teddy-resume {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#teddy-resume h2 {
+    margin-top: 50px;
     margin-left: 20px;
     margin-bottom: 20px;
 }
-#teddy-form{
+
+#teddy-form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-form{
-    margin-top:20px;
-    margin-bottom:20px;
-}
-#teddy-form p,form,label,input{
-    width:85%;
-}
-#teddy-form p{
-    margin-top:0;
+
+#orinocor-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.form-style{
+#orinocor-form div {
+    width: 100%;
     padding-top: 10px;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
-#send-btn{
-    width:35%;
+#orinocor-form input {
+    width: 90%;
+}
+
+#send-btn {
+    width: 35%;
 }

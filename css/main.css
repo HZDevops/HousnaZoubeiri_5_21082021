@@ -11,14 +11,38 @@ h5 {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
 }
-h1{
-    font-size:1.5rem;
+
+h1 {
+    font-size: 1.5rem;
 }
-h2{
-    font-size:1.2rem;
+
+h2 {
+    font-size: 1.2rem;
 }
+
 a {
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
     color: black;
+}
+
+.button {
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 50px;
+    height: 40px;
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.button:hover {
+    box-shadow: 6px 6px 6px 6px #d1d0d0;
+}
+
+input:invalid {
+    border: 2px solid blueviolet;
+}
+
+#error{
+    color:red;
 }
