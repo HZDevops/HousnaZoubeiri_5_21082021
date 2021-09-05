@@ -38,10 +38,10 @@
         <section id="teddy-resume">
             <h2>Formulaire de commande</h2>
             <p>Remplir le formulaire pour valider la commande</p>
-            <form name="orinocor-form" id="orinocor-form" method="post" onsubmit="return false">
+            <form name="orinocor-form" id="orinocor-form" method="post">
                 <div >
-                    <label for="customer-name">Nom : </label><br />
-                    <input type="text" id="customer-name" name="customer-name" placeholder="Ex: Martin" required
+                    <label for="customer-last-name">Nom : </label><br />
+                    <input type="text" id="customer-last-name" name="customer-last-name" placeholder="Ex: Martin" required
                         pattern="[a-zA-Z]{3,20}">
                 </div>
                 <div >
@@ -57,7 +57,7 @@
                 <div >
                     <label for="customer-city">Ville</label><br />
                     <input type="text" id="customer-city" name="customer-city" placeholder="Ex: Paris" required
-                        pattern="[a-zA-Z]{3,12}">
+                        pattern="[a-zA-Z]{5,12}">
                 </div>
                 <div>
                     <label for="code-zip">Code postal</label><br />
@@ -69,6 +69,7 @@
                     <input type="email" id="customer-email" name="customer-email" placeholder="Ex: monadresse@mail.com"
                         required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                 </div>
+                <p id="error"></p>
                 <button id="send-form-btn" type="submit" class="button" name="send-btn">Confirmer la commande</button>
             </form>
 

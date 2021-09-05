@@ -62,11 +62,13 @@ fetch(`http://localhost:3000/api/teddies/${itemId}`)
         return false;
       } else {
         const selectedItem = {
-          item,
+          nameItem: item.name,
+          imageItem: item.imageUrl,
+          descriptionItem: item.description,
+          priceItem: item.price,
           quantity: itemNumber,
           option: itemColorsSelect.value,
         };
-
         // Add item in localStorage
         addItemToLocalStorage(selectedItem);
         alert("L'article a été ajouté au panier");
