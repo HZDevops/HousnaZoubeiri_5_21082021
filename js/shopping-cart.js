@@ -19,7 +19,7 @@ itemLocalStorage.forEach(function (items) {
         <span class="teddy-price">Prix: ${items.priceItem / 100}€</span>
       </div>
     `;
-   
+
   itemTotalPrice.push(JSON.parse(`${items.priceItem / 100}`));
   itemQuantity.push(JSON.parse(`${items.quantity}`));
 });
@@ -36,7 +36,7 @@ document.getElementById(
 const addFormButton = document.getElementById('send-form-btn');
 addFormButton.addEventListener('click', function (e) {
   e.preventDefault();
-  //Put form values in object and send to localStorage
+  //Put form values in object
   const customerContact = {
     lastName: document.getElementById('customer-last-name').value,
     FirstName: document.getElementById('customer-first-name').value,
@@ -44,11 +44,7 @@ addFormButton.addEventListener('click', function (e) {
     city: document.getElementById('customer-city').value,
     email: document.getElementById('customer-email').value,
   };
-  const contact = {
-    customerContact,
-    itemLocalStorage,
-  };
-  console.log(contact);
+  console.log(customerContact);
 
   // Post datas for order to server
   fetch('http://localhost:3000/api/teddies/order', {
