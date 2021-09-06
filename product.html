@@ -17,18 +17,19 @@
 </head>
 
 <body>
-  <header>
-    <div id="logo-orinoco"><img src="images/logo-orinoco.jpg" alt="Logo de Orinoco"></div>
-    <nav>
-      <div class="navicon">
-        <div></div>
-      </div>
-      <a href="index.html">Accueil</a>
-      <a href="shopping-cart.html">Panier</a>
-      <a href="order-confirmation".html>Commande</a>
-    </nav>
-  </header>
-  <main>
+<header>
+  <div id="logo-orinoco"><img src="images/logo-orinoco.jpg" alt="Logo de Orinoco"></div>
+  <nav>
+    <div class="navicon">
+      <div></div>
+    </div>
+    <a href="index.html">Accueil</a>
+    <a href="shopping-cart.html">Panier</a>
+    <a href="order-confirmation" .html>Commande</a>
+  </nav>
+</header>
+<main>
+  <form id="add-to-cart-form" action="index.html" method="POST">
     <div id="teddy-card" class="product-card"></div>
     <div id="teddy-details">
       <div class="teddy-info">
@@ -37,17 +38,19 @@
         </select>
       </div>
       <div class="teddy-info">
-        <label for="teddy-number">Quantité : </label><br />
-        <input type="number" id="teddy-number" name="teddy-number" placeholder="Ex: 10" required min="1" max="20">
+        <label for="quantity">Quantité : </label><br />
+        <input type="number" id="quantity" name="quantity" placeholder="Ex: 10" required min="1" max="20">
       </div>
       <p id="error"></p>
-      <button id="add-item-btn" class="button">Ajouter au panier</button>
+      <button type="submit" class="button">Ajouter au panier</button>
     </div>
-  </main>
-  <footer>
-  </footer>
+  </form>
+</main>
+<footer>
+</footer>
 
-  <script src="./js/product.js"></script>
+<script src="./js/utils.js"></script>
+<script src="./js/product.js"></script>
 </body>
 
 </html>
