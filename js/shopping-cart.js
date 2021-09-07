@@ -1,12 +1,11 @@
 // Get item selected products in local Storage
-const shoppingCart = getFromLocalStorage('orinoco-shopping-cart')
-//console.log(itemLocalStorage);
+const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
 
 // Display item from localStorage to shopping-cart page
 const itemListInHtml = document.getElementById('teddy-storage');
 const itemTotalPrice = [];
 const itemQuantity = [];
-
+const products = [];
 if (shoppingCart) {
   shoppingCart.forEach(function (item) {
     itemListInHtml.innerHTML += `
@@ -20,7 +19,7 @@ if (shoppingCart) {
         <span class="teddy-price">Prix: ${item.price / 100}€</span>
       </div>
     `;
-
+    products.push(item._id);
     itemTotalPrice.push(item.price / 100);
     itemQuantity.push(item.quantity);
   });
@@ -30,34 +29,21 @@ if (shoppingCart) {
   for (let i = 0; i < itemTotalPrice.length; i++) {
     shoppingCartAmount += itemTotalPrice[i] * itemQuantity[i];
   }
-  document.getElementById('shopping-cart-amount').textContent = `Montant total : ${shoppingCartAmount}€`;
+  document.getElementById(
+    'shopping-cart-amount'
+  ).textContent = `Montant total : ${shoppingCartAmount}€`;
 }
 
-const form = document.getElementById('orinoco-form')
+const form = document.getElementById('orinoco-form');
 form.addEventListener('submit', function (e) {
-  //Put form values in object and send to localStorage
+  //Put form values in object
   const contact = {
+    firstName: document.getElementById('customer-first-name').value,
     lastName: document.getElementById('customer-last-name').value,
-    FirstName: document.getElementById('customer-first-name').value,
     address: document.getElementById('customer-address').value,
     city: document.getElementById('customer-city').value,
     email: document.getElementById('customer-email').value,
   };
-
-  const payload = { contact, products: shoppingCart }
-
-  // Post datas for order to server
-  fetch('http://localhost:3000/api/teddies/order', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  }).then(function (res) {
-    if (res.ok) {
-      return res.json();
-    }
-    console.log(res.json);
-  });
+  const payload = { contact, products };
+  saveToLocalStorage('orinoco-order-info', payload);
 });

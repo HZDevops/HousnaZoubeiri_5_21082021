@@ -213,7 +213,7 @@ p {
     justify-content: space-around;
 }
 
-#orinocor-form {
+#orinoco-form {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -221,12 +221,12 @@ p {
     margin-bottom: 20px;
 }
 
-#orinocor-form div {
+#orinoco-form div {
     width: 100%;
     padding-top: 10px;
     margin-bottom: 30px;
 }
-#orinocor-form input {
+#orinoco-form input {
     width: 90%;
 }
 
