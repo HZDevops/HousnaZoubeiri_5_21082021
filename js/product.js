@@ -17,10 +17,10 @@ function addItemToHtml (item) {
       <span>Prix:${ item.price / 100 } €</span>
     `
   // Display item's options
-  item.colors.forEach(function (color) {
-    const itemColorsSelect = document.getElementById('teddy-colors-select')
-    const colorOption = document.createElement('option')
-    itemColorsSelect.appendChild(colorOption).innerHTML += color
+  item.colors.forEach(function (option) {
+    const itemOptionsSelectHtml = document.getElementById('teddy-colors-select')
+    const itemOptionHtml = document.createElement('option')
+    itemOptionsSelectHtml.appendChild(itemOptionHtml).innerHTML += option
   })
 }
 
@@ -52,10 +52,10 @@ fetch(`http://localhost:3000/api/teddies/${itemId}`)
     // Add item on shopping-cart
     const form = document.getElementById('add-to-cart-form')
     form.addEventListener('submit', function () {
-      const itemColorsSelect = document.getElementById('teddy-colors-select')
+      const itemOptionsSelect = document.getElementById('teddy-colors-select')
       const itemQuantity = document.getElementById('quantity').value
 
-      const selectedItem = { ...item, quantity: itemQuantity, option: itemColorsSelect.value }
+      const selectedItem = { ...item, quantity: itemQuantity, option: itemOptionsSelect.value }
       // Add item in localStorage
       addItemToLocalStorage(selectedItem)
       alert('L\'article a été ajouté au panier')

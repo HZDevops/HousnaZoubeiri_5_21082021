@@ -5,16 +5,16 @@
     }
    })
   .then(function (data) {
-    const teddies = data
-    const teddyListUl = document.getElementById('teddy-list')
+    const itemsforSale = data
+    const itemListUl = document.getElementById('teddy-list')
 
-      teddies.forEach(function (teddy) {
-      teddyListUl.innerHTML += `
-        <a href="product.html?id=${teddy._id}" class="product-card">
-          <img src="${teddy.imageUrl}" alt="teddy" />
-          <h3>${teddy.name}</h3>
-          <p>${teddy.description}</p>
-          <span>${teddy.price/100} €</span>
+    itemsforSale.forEach(function (item) {
+      itemListUl.innerHTML += `
+        <a href="product.html?id=${item._id}" class="product-card">
+          <img src="${item.imageUrl}" alt="teddy"/>
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <span>${item.price/100} €</span>
         </a>
       `
     })
