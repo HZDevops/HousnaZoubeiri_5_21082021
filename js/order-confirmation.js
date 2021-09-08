@@ -1,7 +1,18 @@
 // Get order information from local Storage
 const orderInfo = getFromLocalStorage('orinoco-order-info');
 
-// Post order information to server to order confirmation and Id
+//Display order Id and total amount on the order confirmation page 
+function addOrderInfoToHtml(order) {
+  const orderHtmlContainer = document.getElementById('order-info');
+  const shoppingCartAmountHtml = getFromLocalStorage('shopping-cart-amount');
+ 
+  orderHtmlContainer.innerHTML += `
+      <h3>Numéro de commande: ${order.orderId}</h3>
+      <h3>Montant total de votre commande: ${shoppingCartAmountHtml} €</h3>
+      `;
+}
+
+// Post order information to server to get order Id
 fetch('http://localhost:3000/api/teddies/order', {
   method: 'POST',
   headers: {
@@ -16,5 +27,5 @@ fetch('http://localhost:3000/api/teddies/order', {
   })
   .then(function (data) {
     const orderConfirmation = data;
-    console.log(orderConfirmation);
-  });
+    addOrderInfoToHtml(orderConfirmation);
+  })

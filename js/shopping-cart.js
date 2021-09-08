@@ -32,6 +32,8 @@ if (shoppingCart) {
   document.getElementById(
     'shopping-cart-amount'
   ).textContent = `Montant total : ${shoppingCartAmount}€`;
+  saveToLocalStorage('shopping-cart-amount', shoppingCartAmount);
+
 }
 
 const form = document.getElementById('orinoco-form');

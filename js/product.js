@@ -6,7 +6,7 @@ const urlSearchParams = new URLSearchParams(queryStringUrlId)
 
 const itemId = urlSearchParams.get('id')
 
-// Function to display item details on product page when item is selected
+// Display item details on product page when item is selected
 function addItemToHtml (item) {
   const itemHtmlContainer = document.getElementById('teddy-card')
 

@@ -174,12 +174,12 @@ h2 {
     width: 30%;
 }
 
-.teddy-info {
+.product-info {
     width: 50%;
     margin-left: 10px;
 }
 
-.teddy-info h3,
+.product-info h3,
 p {
     margin-bottom: 5px;
     margin-top: 15px;
@@ -226,10 +226,31 @@ p {
     padding-top: 10px;
     margin-bottom: 30px;
 }
+
 #orinoco-form input {
     width: 90%;
 }
 
 #send-btn {
     width: 35%;
+}
+
+/*** CSS for order-confirmation page***/
+#order-message {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#order-message h1 {
+    margin-bottom: 50px;
+}
+
+#order-resume {
+    background-color: rgba(219, 170, 219, 0.2);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#order-info h3{
+    font-size: 0.9rem;
 }
