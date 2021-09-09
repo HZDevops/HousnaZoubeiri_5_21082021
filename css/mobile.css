@@ -1,93 +1,33 @@
 /**** CSS for Header of the pages****/
 header {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#logo-orinoco {
-    background: rgba(219, 170, 219, 0.2);
+    justify-content: space-around;
+    background-color: rgba(243, 233, 241, 1);
 }
 
 header img {
     width: 50%;
-    margin-left: 25%;
 }
 
 header nav {
     display: flex;
-    background: rgba(219, 170, 219, 0.2);
-
-}
-
-nav {
-    width: auto;
-    background: white;
-    color: rgba(0, 0, 0, 0.87);
-    -webkit-clip-path: circle(24px at 30px 24px);
-    clip-path: circle(24px at 32px 24px);
-    -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
-    transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
-}
-
-nav:hover {
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-    -webkit-transition-duration: 0.75s;
-    transition-duration: 0.75s;
-    -webkit-clip-path: circle(390px at 225px 24px);
-    clip-path: circle(390px at 150px 24px);
+    align-self: center;
+   
 }
 
 nav a {
-    display: block;
-    line-height: 50px;
-    padding: 0 18.2px;
-    color: inherit;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    font-weight: bold;   
 }
 
 nav a:hover {
-    color: black;
+    color: blueviolet;
     font-weight: bold;
 }
 
-.navicon {
-    padding: 23px 20px;
-    cursor: pointer;
-    -webkit-transform-origin: 32px 24px;
-    -ms-transform-origin: 32px 24px;
-    transform-origin: 32px 24px;
-}
-
-.navicon div {
-    position: relative;
-    width: 20px;
-    height: 3px;
-    background: rgba(0, 0, 0, 0.87);
-}
-
-.navicon div:before,
-.navicon div:after {
-    display: block;
-    content: "";
-    width: 20px;
-    height: 3px;
-    background: rgba(0, 0, 0, 0.87);
-    position: absolute;
-}
-
-.navicon div:before {
-    top: -7px;
-}
-
-.navicon div:after {
-    top: 7px;
+h1{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 h2 {
@@ -149,7 +89,7 @@ h2 {
 /**** CSS for shopping-cart page****/
 
 #teddy-storage {
-    background-color: rgba(219, 170, 219, 0.2);
+    background-color: rgba(243, 233, 241, 1);
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -247,7 +187,7 @@ p {
 }
 
 #order-resume {
-    background-color: rgba(219, 170, 219, 0.2);
+    background-color: rgba(243, 233, 241, 1);
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;

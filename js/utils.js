@@ -3,7 +3,7 @@ function saveToLocalStorage (key, value) {
 }
 
 /**
- * Get an item form local storage
+ * Get an item from local storage
  * @param key {string}
  * @returns {Array}
  */
