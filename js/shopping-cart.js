@@ -2,7 +2,7 @@
 const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
 
 // Display item from localStorage to shopping-cart page
-const itemListInHtml = document.getElementById('teddy-storage');
+const itemListInHtml = document.getElementById('teddy-shopping-cart');
 const itemTotalPrice = [];
 const itemQuantity = [];
 const products = [];
@@ -36,7 +36,7 @@ if (shoppingCart) {
 
 }
 
-const form = document.getElementById('orinoco-form');
+const form = document.getElementById('contact-form');
 form.addEventListener('submit', function (e) {
   //Put form values in object
   const contact = {

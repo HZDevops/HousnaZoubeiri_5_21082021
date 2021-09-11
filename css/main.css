@@ -26,6 +26,107 @@ a {
     color: black;
 }
 
+h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: blueviolet;
+}
+
+/**** Header****/
+header {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(243, 233, 241, 1);
+    margin-bottom: 30px;
+}
+
+header img {
+    width: 50%;
+}
+
+header nav {
+    display: flex;
+    align-self: center;
+
+}
+
+nav a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+nav a:hover,footer a:hover {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+/****Footer****/
+footer {
+    background-color: rgba(243, 233, 241, 1);
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer h2 {
+    width: 100%;
+    font-family: "Shrikhand", sans-serif;
+    font-size: 1.2rem;
+    padding-top: 30px;
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    font-weight: 800;
+}
+
+@media (min-width: 768px) {
+    footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    footer h3 {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    footer ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    footer ul li>a {
+        font-size: 1rem;
+    }
+}
+
+/***Form button****/
 .button {
     width: 200px;
     border-radius: 20px;
@@ -41,8 +142,4 @@ a {
 
 input:invalid {
     border: 2px solid blueviolet;
-}
-
-#error{
-    color:red;
 }

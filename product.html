@@ -18,11 +18,8 @@
 
 <body>
   <header>
-    <div id="logo-orinoco"><img src="images/logo-orinoco.jpg" alt="Logo de Orinoco"></div>
+    <img src="images/logo-orinoco.jpg" alt="Logo de Orinoco">
     <nav>
-      <div class="navicon">
-        <div></div>
-      </div>
       <a href="index.html">Accueil</a>
       <a href="shopping-cart.html">Panier</a>
     </nav>
@@ -40,13 +37,18 @@
           <label for="quantity">Quantité : </label><br />
           <input type="number" id="quantity" name="quantity" placeholder="Ex: 10" required min="1" max="20">
         </div>
-        <button type="submit" class="button">Ajouter au panier</button>
+        <button type="submit" class="button" id="add-to-cart">Ajouter au panier</button>
       </div>
     </form>
   </main>
   <footer>
-  </footer>
-
+    <h2>Orinoco</h2>
+         <ul>
+             <li><a href="#"></i>A propos d'Orinoco</a></li>
+             <li><a href="#">Mentions légales</a></li>
+             <li><a href="mailto:contact@orinoco.fr">Service Client</a></li>
+         </ul>
+ </footer>
   <script src="./js/utils.js"></script>
   <script src="./js/product.js"></script>
 </body>

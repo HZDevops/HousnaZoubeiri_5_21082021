@@ -1,10 +1,5 @@
-//Get URL query string
-const queryStringUrlId = window.location.search
-
-// Id extraction
-const urlSearchParams = new URLSearchParams(queryStringUrlId)
-
-const itemId = urlSearchParams.get('id')
+//Get Id product from URL query string
+const itemId = getProductIdFromUrl();
 
 // Display item details on product page when item is selected
 function addItemToHtml (item) {
@@ -14,7 +9,7 @@ function addItemToHtml (item) {
       <img src="${ item.imageUrl }" alt="teddy-photo"/>
       <h3>${ item.name }</h3>
       <p>${ item.description }</p>
-      <span>Prix:${ item.price / 100 } €</span>
+      <span>Prix: ${ item.price / 100 } €</span>
     `
   // Display item's options
   item.colors.forEach(function (option) {
@@ -24,7 +19,7 @@ function addItemToHtml (item) {
   })
 }
 
-// Function to get and save items in localStorage
+// Function to get and save items in shopping-cart
 function addItemToLocalStorage (item) {
   const shoppingCart = getFromLocalStorage('orinoco-shopping-cart')
 
