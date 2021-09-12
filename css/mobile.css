@@ -56,13 +56,22 @@ p {
 }
 
 #add-to-cart {
-    margin-top: 0;
+    margin-top: 50px;
     margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    #add-to-cart {
+        margin-top: 0;
+    }
 }
 
 /**** Shopping-cart page****/
 
 #teddy-shopping-cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
     background-color: rgba(243, 233, 241, 1);
     padding-top: 20px;
     padding-left: 20px;
@@ -72,12 +81,14 @@ p {
 }
 
 h2 {
-    width: 50%;
+    width: 100%;
 }
 
 /*** Card product appearance in shopping-cart***/
-.teddy-o {
+.teddy-cart {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     height: 100px;
     background-color: white;
     margin-bottom: 10px;
@@ -85,8 +96,8 @@ h2 {
     padding-bottom: 20px;
 }
 
-.teddy-ordered img {
-    width: 30%;
+.teddy-cart img {
+    width: auto;
 }
 
 
@@ -95,27 +106,37 @@ h2 {
     font-weight: bold;
 }
 
+.garbage-button {
+    align-self: center;
+    width: 40px;
+    height: 60px;
+    color: blueviolet;
+    border-color: blueviolet;
+    margin-right: 30px;
+    border-radius: 10px;
+}
+
+fa,
+.fas {
+    font-size: 1.3rem;
+}
+
 #shopping-cart-amount {
     color: blueviolet;
     font-weight: bold;
-    margin-left: 150px;
 }
 
 #teddy-form {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 #teddy-form h2 {
+    width: 100%;
     margin-top: 50px;
     margin-left: 20px;
     margin-bottom: 20px;
-}
-
-#teddy-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 #contact-form {
@@ -123,6 +144,7 @@ h2 {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 20px;
+    margin-left: 20px;
     margin-bottom: 40px;
 }
 
@@ -155,6 +177,7 @@ h2 {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 #order-info h3 {

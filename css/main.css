@@ -58,9 +58,11 @@ nav a {
     font-weight: bold;
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
-nav a:hover,footer a:hover {
+nav a:hover,
+footer a:hover {
     color: blueviolet;
     font-weight: bold;
 }
@@ -85,7 +87,7 @@ footer h2 {
 footer ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style-type: none;
     padding-left: 20px;
 }
@@ -105,20 +107,12 @@ footer ul li a:hover {
 
 @media (min-width: 768px) {
     footer {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
     }
 
     footer h3 {
         width: 100%;
         margin-bottom: 0;
-    }
-
-    footer ul {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
     }
 
     footer ul li>a {
