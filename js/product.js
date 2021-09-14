@@ -53,6 +53,6 @@ fetch(`http://localhost:3000/api/teddies/${itemId}`)
       const selectedItem = { ...item, quantity: itemQuantity, option: itemOptionsSelect.value }
       // Add item in localStorage
       addItemToLocalStorage(selectedItem)
-      alert('L\'article a été ajouté au panier')
+      open_mod(); 
     })
   })

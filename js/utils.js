@@ -39,3 +39,10 @@ function calculateShoppingCartAmount(price, quantity) {
   }
   return totalPrice;
 }
+
+function open_mod(){
+  var modal = document.getElementById('modal'); 
+  modal.getElementsByClassName('message')[0].innerHTML = 'L\'article a été ajouté au panier'; 
+  modal.className += 'open';
+  return false;
+} 

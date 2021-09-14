@@ -37,6 +37,18 @@
     box-shadow: 6px 6px 6px 6px #d1d0d0;
 }
 
+@media (min-width: 768px) {
+    #teddies ul {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .product-card {
+        width: 45%;
+    }
+}
+
 /**** Product page****/
 #teddy-details {
     display: flex;
@@ -50,7 +62,7 @@
 }
 
 .product-info h3,
-p {
+.product-info p {
     margin-bottom: 5px;
     margin-top: 15px;
 }
@@ -61,6 +73,14 @@ p {
 }
 
 @media (min-width: 768px) {
+    #add-to-cart-form {
+        display: flex;
+    }
+
+    .product-info {
+        width: 100%;
+    }
+
     #add-to-cart {
         margin-top: 0;
     }
@@ -82,6 +102,11 @@ p {
 
 h2 {
     width: 100%;
+}
+
+#teddy-shopping-cart p{
+    width: 100%;
+    font-weight: bold;
 }
 
 /*** Card product appearance in shopping-cart***/
@@ -119,6 +144,38 @@ h2 {
 fa,
 .fas {
     font-size: 1.3rem;
+}
+
+@media (max-width: 414px) {
+    .teddy-cart img {
+        width: 45%;
+    }
+
+    .teddy-cart {
+        font-size: 0.9rem;
+    }
+
+    .teddy-info {
+        width: 45%;
+    }
+
+    .teddy-info h3 {
+        margin-bottom: 5px;
+    }
+
+    .teddy-info p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .teddy-price {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .garbage-button {
+        margin-right: 10px;
+    }
 }
 
 #shopping-cart-amount {
