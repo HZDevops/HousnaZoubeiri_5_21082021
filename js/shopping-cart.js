@@ -1,4 +1,4 @@
-// Get item selected products in local Storage
+// Get items in local Storage
 const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
 
 // Display items on shopping-cart page if items in localStorage
@@ -6,13 +6,14 @@ const itemListInHtml = document.getElementById('teddy-shopping-cart');
 const itemTotalPrice = [];
 const itemQuantity = [];
 const products = [];
-const idStorage = [];
-let i = 0;
 
+// Display message if shopping-cart empty
 if (!shoppingCart) {
   const emptyCart = document.createElement('p');
   itemListInHtml.appendChild(emptyCart);
   emptyCart.textContent = 'Votre panier est vide !';
+
+  //Display items if shopping cart full
 } else {
   shoppingCart.forEach(function (item) {
     itemListInHtml.innerHTML += `
@@ -34,23 +35,32 @@ if (!shoppingCart) {
     products.push(item._id);
     itemTotalPrice.push(item.price / 100);
     itemQuantity.push(item.quantity);
-    idStorage.push(i);
-    i++;
   });
-  
+
+  //Empty Shopping-Cart
+  const btnEmptyShoppingCartInHtml = `<button id="empty-cart-button" class="garbage-button" title="Vider le panier?">Vider le panier</button>`;
+  itemListInHtml.insertAdjacentHTML('beforeend', btnEmptyShoppingCartInHtml);
+  const btnEmptyShoppingCart = document.getElementById('empty-cart-button');
+  btnEmptyShoppingCart.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Remove items in localStorage
+    localStorage.removeItem('orinoco-shopping-cart');
+    window.location.href = 'shopping-cart.html';
+  });
 }
-console.log(idStorage);
+
 //Calculate shopping-cart amount
 const shoppingCartAmount = calculateShoppingCartAmount(
   itemTotalPrice,
   itemQuantity
 );
 
-//Display the shopping-cart amount on html and save it in localStorage
-const cartAmount = document.createElement('span');
-itemListInHtml.appendChild(cartAmount);
-cartAmount.id = 'shopping-cart-amount';
-cartAmount.textContent = `Montant total : ${shoppingCartAmount}€`;
+//Display the shopping-cart amount on html
+const cartAmountInHtml = `<span id="shopping-cart-amount"> Montant total : ${shoppingCartAmount}€</span>`;
+itemListInHtml.insertAdjacentHTML('beforeend', cartAmountInHtml);
+
+//Save the shopping-cart amount in localStorage
 saveToLocalStorage('shopping-cart-amount', shoppingCartAmount);
 
 //Put form values in object
@@ -63,6 +73,7 @@ form.addEventListener('submit', function (e) {
     city: document.getElementById('customer-city').value,
     email: document.getElementById('customer-email').value,
   };
+
   const payload = { contact, products };
   saveToLocalStorage('orinoco-order-info', payload);
 });

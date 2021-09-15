@@ -104,7 +104,7 @@ h2 {
     width: 100%;
 }
 
-#teddy-shopping-cart p{
+#teddy-shopping-cart p {
     width: 100%;
     font-weight: bold;
 }
@@ -141,6 +141,14 @@ h2 {
     border-radius: 10px;
 }
 
+#empty-cart-button {
+    font-size: 1rem;
+    font-weight: bold;
+    width: 40%;
+    height: 40px;
+    margin-top: 50px;
+}
+
 fa,
 .fas {
     font-size: 1.3rem;
@@ -175,6 +183,11 @@ fa,
 
     .garbage-button {
         margin-right: 10px;
+    }
+
+    #empty-cart-button {
+        margin-right: 20px;
+        margin-top: 0;
     }
 }
 

@@ -149,7 +149,7 @@ input:invalid {
 }
 
 /***Pop-up****/
-/* The Modal (background) */
+/* The Modal - Background */
 .modal {
     display: none;
     position: fixed;
@@ -163,13 +163,17 @@ input:invalid {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content/Box */
+/* Modal Content - Box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+}
+.modal-content p{
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 /* The Close Button */
