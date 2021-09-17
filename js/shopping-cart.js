@@ -17,7 +17,7 @@ if (!shoppingCart) {
 } else {
   shoppingCart.forEach(function (item) {
     itemListInHtml.innerHTML += `
-      <div class="teddy-cart" id="${item._id}">
+      <div class="teddy-cart">
         <img src="${item.imageUrl}" alt="teddy selected by customer" />
         <div class="teddy-info">
           <h3>${item.name}</h3>
@@ -27,9 +27,6 @@ if (!shoppingCart) {
         <span class="teddy-price">Prix: ${
           (item.price * item.quantity) / 100
         }€</span>
-        <button class="garbage-button" id="${
-          item._id
-        }" title="Supprimer cet article?"><i class="fas fa-trash-alt"></i></button>
       </div>
     `;
     products.push(item._id);
@@ -38,9 +35,9 @@ if (!shoppingCart) {
   });
 
   //Empty Shopping-Cart
-  const btnEmptyShoppingCartInHtml = `<button id="empty-cart-button" class="garbage-button" title="Vider le panier?">Vider le panier</button>`;
+  const btnEmptyShoppingCartInHtml = `<button id="garbage-button">Vider le panier<i class="fas fa-trash-alt"></i></button>`;
   itemListInHtml.insertAdjacentHTML('beforeend', btnEmptyShoppingCartInHtml);
-  const btnEmptyShoppingCart = document.getElementById('empty-cart-button');
+  const btnEmptyShoppingCart = document.getElementById('garbage-button');
   btnEmptyShoppingCart.addEventListener('click', function (e) {
     e.preventDefault();
 

@@ -1,12 +1,12 @@
 /**
- * Get Id product from URL query string
- * @returns {string} productId
+ * Get string of characters from URL query string
+ * @returns {string}
  */
-function getProductIdFromUrl() {
-  const queryStringUrlId = window.location.search;
-  const urlSearchParams = new URLSearchParams(queryStringUrlId);
-  const productId = urlSearchParams.get('id');
-  return productId;
+function getStringFromUrl() {
+  const queryStringUrl = window.location.search;
+  const urlSearchParams = new URLSearchParams(queryStringUrl);
+  const stringToGet = urlSearchParams.get('id');
+  return stringToGet;
 }
 /**
  * Save an item to local storage

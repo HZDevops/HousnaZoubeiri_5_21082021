@@ -1,5 +1,9 @@
-//Get Id product from URL query string
-const itemId = getProductIdFromUrl();
+const AddToCartButton = document.getElementById('add-to-cart-form');
+const popUpInHtml = document.getElementById('pop-up');
+const popUpCross = document.getElementsByClassName('close')[0];
+
+//Get item id from URL query string
+const itemIdInUrl = getStringFromUrl();
 
 // Display item details on product page when item is selected
 function addItemToHtml(item) {
@@ -21,7 +25,7 @@ function addItemToHtml(item) {
   });
 }
 
-// Function to get and save items in shopping-cart
+// Add a new item in localStorage
 function addItemToLocalStorage(item) {
   const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
 
@@ -33,22 +37,34 @@ function addItemToLocalStorage(item) {
   }
 }
 
-// Get selected item data
-fetch(`http://localhost:3000/api/teddies/${itemId}`)
+//Display a pop-up when user add an item in shopping-cart
+function displayPopUp() {
+  popUpInHtml.style.display = 'block';
+  popUpCross.addEventListener('click', function (e) {
+    e.preventDefault();
+    popUpInHtml.style.display = 'none';
+  });
+  window.addEventListener('click', function (e) {
+    if (e.target === popUpInHtml) {
+      popUpInHtml.style.display = 'none';
+    }
+  });
+}
+
+fetch(`http://localhost:3000/api/teddies/${itemIdInUrl}`)
   .then(function (response) {
     if (response.ok) {
       return response.json();
     }
   })
   .then(function (data) {
-    const item = data;
+    item = data;
 
     // Make item HTML card
     addItemToHtml(item);
 
-    // Add item on shopping-cart
-    const form = document.getElementById('add-to-cart-form');
-    form.addEventListener('submit', function (e) {
+    // Add item in shopping-cart
+    AddToCartButton.addEventListener('submit', function (e) {
       e.preventDefault();
       const itemOptionsSelect = document.getElementById('teddy-colors-select');
       const itemQuantity = document.getElementById('quantity').value;
@@ -58,7 +74,7 @@ fetch(`http://localhost:3000/api/teddies/${itemId}`)
         quantity: itemQuantity,
         option: itemOptionsSelect.value,
       };
-      // Add item in localStorage
       addItemToLocalStorage(selectedItem);
+      displayPopUp();
     });
   });
