@@ -23,8 +23,7 @@ fetch('http://localhost:3000/api/teddies/')
     `;
     });
   })
-
+ // Display error message information when promise before rejected
   .catch(function (error) {
-    // Une erreur est survenue
-    document.getElementById('error-message').innerText = 'Produit inaccessible';
+       document.getElementById('error-message').innerText = 'Produit inaccessible';
   });

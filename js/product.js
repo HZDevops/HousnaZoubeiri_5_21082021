@@ -51,30 +51,38 @@ function displayPopUp() {
   });
 }
 
-fetch(`http://localhost:3000/api/teddies/${itemIdInUrl}`)
-  .then(function (response) {
-    if (response.ok) {
-      return response.json();
-    }
-  })
-  .then(function (data) {
-    item = data;
+function addItemToCart() {
+  fetch(`http://localhost:3000/api/teddies/${itemIdInUrl}`)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(function (data) {
+      item = data;
 
-    // Make item HTML card
-    addItemToHtml(item);
+      // Make item HTML card
+      addItemToHtml(item);
 
-    // Add item in shopping-cart
-    AddToCartButton.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const itemOptionsSelect = document.getElementById('teddy-colors-select');
-      const itemQuantity = document.getElementById('quantity').value;
+      // Add item in shopping-cart
+      AddToCartButton.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const itemOptionsSelect = document.getElementById(
+          'teddy-colors-select'
+        );
+        const itemQuantity = document.getElementById('quantity').value;
 
-      const selectedItem = {
-        ...item,
-        quantity: itemQuantity,
-        option: itemOptionsSelect.value,
-      };
-      addItemToLocalStorage(selectedItem);
-      displayPopUp();
+        const selectedItem = {
+          ...item,
+          quantity: itemQuantity,
+          option: itemOptionsSelect.value,
+        };
+        addItemToLocalStorage(selectedItem);
+        displayPopUp();
+      });
+    })
+    .catch(function (error) {
+      document.getElementById('error-message').innerText =
+        'Serveur momentanémment indisponible';
     });
-  });
+}
