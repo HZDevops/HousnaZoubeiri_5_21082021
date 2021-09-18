@@ -1,100 +1,4 @@
-/**** CSS for Header of the pages****/
-header {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#logo-orinoco {
-    background: rgba(219, 170, 219, 0.2);
-}
-
-header img {
-    width: 50%;
-    margin-left: 25%;
-}
-
-header nav {
-    display: flex;
-    background: rgba(219, 170, 219, 0.2);
-
-}
-
-nav {
-    width: auto;
-    background: white;
-    color: rgba(0, 0, 0, 0.87);
-    -webkit-clip-path: circle(24px at 30px 24px);
-    clip-path: circle(24px at 32px 24px);
-    -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
-    transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
-}
-
-nav:hover {
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-    -webkit-transition-duration: 0.75s;
-    transition-duration: 0.75s;
-    -webkit-clip-path: circle(390px at 225px 24px);
-    clip-path: circle(390px at 150px 24px);
-}
-
-nav a {
-    display: block;
-    line-height: 50px;
-    padding: 0 18.2px;
-    color: inherit;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-size: 0.9rem;
-}
-
-nav a:hover {
-    color: black;
-    font-weight: bold;
-}
-
-.navicon {
-    padding: 23px 20px;
-    cursor: pointer;
-    -webkit-transform-origin: 32px 24px;
-    -ms-transform-origin: 32px 24px;
-    transform-origin: 32px 24px;
-}
-
-.navicon div {
-    position: relative;
-    width: 20px;
-    height: 3px;
-    background: rgba(0, 0, 0, 0.87);
-}
-
-.navicon div:before,
-.navicon div:after {
-    display: block;
-    content: "";
-    width: 20px;
-    height: 3px;
-    background: rgba(0, 0, 0, 0.87);
-    position: absolute;
-}
-
-.navicon div:before {
-    top: -7px;
-}
-
-.navicon div:after {
-    top: 7px;
-}
-
-h2 {
-    color: blueviolet;
-}
-
-/*** Card product appearance***/
+/*** Product card ***/
 #teddies ul {
     padding-left: 0;
 }
@@ -133,7 +37,19 @@ h2 {
     box-shadow: 6px 6px 6px 6px #d1d0d0;
 }
 
-/**** CSS for product page****/
+@media (min-width: 768px) {
+    #teddies ul {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .product-card {
+        width: 45%;
+    }
+}
+
+/**** Product page****/
 #teddy-details {
     display: flex;
     justify-content: space-around;
@@ -141,15 +57,41 @@ h2 {
     margin-left: 15px;
 }
 
-.teddy-info {
-    width: 200px;
+.product-info {
+    margin-left: 10px;
 }
 
+.product-info h3,
+.product-info p {
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
 
-/**** CSS for shopping-cart page****/
+#add-to-cart {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
-#teddy-storage {
-    background-color: rgba(219, 170, 219, 0.2);
+@media (min-width: 768px) {
+    #add-to-cart-form {
+        display: flex;
+    }
+
+    .product-info {
+        width: 100%;
+    }
+
+    #add-to-cart {
+        margin-top: 0;
+    }
+}
+
+/**** Shopping-cart page****/
+#teddy-shopping-cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    background-color: rgba(243, 233, 241, 1);
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -158,78 +100,167 @@ h2 {
 }
 
 h2 {
-    width: 50%;
+    width: 100%;
+}
+
+#teddy-shopping-cart p {
+    width: 100%;
 }
 
 /*** Card product appearance in shopping-cart***/
-.teddy-ordered {
+.teddy-cart {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     height: 100px;
     background-color: white;
     margin-bottom: 10px;
     margin-top: 20px;
 }
 
-.teddy-ordered img {
-    width: 30%;
+.teddy-cart img {
+    width: auto;
 }
 
 .teddy-info {
-    width: 50%;
+    width: 60%;
     margin-left: 10px;
 }
 
-.teddy-info h3,
-p {
+.teddy-info h3 {
     margin-bottom: 5px;
-    margin-top: 15px;
+}
+
+.teddy-info p {
+    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 .teddy-price {
+    width: 10%;
     align-self: center;
+    margin-right: 10px;
     font-weight: bold;
+}
+
+#garbage-button {
+    font-size: 1rem;
+    font-weight: bold;
+    width: 40%;
+    height: 40px;
+    margin-top: 50px;
+    align-self: center;
+    color: blueviolet;
+    border-color: blueviolet;
+    margin-right: 30px;
+    border-radius: 10px;
+}
+
+fa,
+.fas {
+    margin-left: 15px;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 414px) {
+    .teddy-cart img {
+        width: 45%;
+    }
+
+    .teddy-cart {
+        font-size: 0.9rem;
+    }
+
+    .teddy-info {
+        width: 45%;
+        margin-left: 10px;
+    }
+
+    .teddy-info h3 {
+        margin-bottom: 5px;
+    }
+
+    .teddy-info p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .teddy-price {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    #garbage-button {
+        font-size: 0.9rem;
+        margin-right: 20px;
+        margin-top: 0;
+    }
+
+    fa,
+    .fas {
+        font-size: 0.9rem;
+    }
 }
 
 #shopping-cart-amount {
     color: blueviolet;
     font-weight: bold;
-    margin-left: 150px;
 }
 
-#teddy-resume {
+#teddy-form {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
-#teddy-resume h2 {
+#teddy-form h2 {
+    width: 100%;
     margin-top: 50px;
     margin-left: 20px;
     margin-bottom: 20px;
 }
 
-#teddy-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-#orinocor-form {
+#contact-form {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-bottom: 40px;
 }
 
-#orinocor-form div {
+#contact-form div {
     width: 100%;
     padding-top: 10px;
     margin-bottom: 30px;
 }
-#orinocor-form input {
+
+#contact-form input {
     width: 90%;
 }
 
 #send-btn {
     width: 35%;
+}
+
+/*** CSS for order-confirmation page***/
+#order-message {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#order-message h1 {
+    margin-bottom: 50px;
+}
+
+#order-resume {
+    background-color: rgba(243, 233, 241, 1);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+}
+
+#order-info h3 {
+    font-size: 0.9rem;
 }

@@ -26,6 +26,111 @@ a {
     color: black;
 }
 
+h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: blueviolet;
+}
+
+/**** Header****/
+header {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(243, 233, 241, 1);
+    margin-bottom: 30px;
+}
+
+header img {
+    width: 50%;
+}
+
+header nav {
+    display: flex;
+    align-self: center;
+
+}
+
+nav a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+nav a:hover,
+footer a:hover {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+/****Footer****/
+footer {
+    background-color: rgba(243, 233, 241, 1);
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer h2 {
+    width: 100%;
+    font-family: "Shrikhand", sans-serif;
+    font-size: 1.2rem;
+    padding-top: 30px;
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    font-weight: 800;
+}
+
+@media (max-width: 414px) {
+    footer {
+        justify-content: space-between;
+    }
+
+    footer ul li>a {
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    footer {
+        justify-content: center;
+    }
+
+    footer h3 {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    footer ul li>a {
+        font-size: 1rem;
+    }
+}
+
+/***Form button****/
 .button {
     width: 200px;
     border-radius: 20px;
@@ -43,6 +148,45 @@ input:invalid {
     border: 2px solid blueviolet;
 }
 
-#error{
-    color:red;
+/***Pop-up****/
+/* The Modal - Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content - Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.modal-content p{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
