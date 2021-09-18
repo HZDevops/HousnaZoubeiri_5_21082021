@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <script src="https://kit.fontawesome.com/330caa293f.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <title>Orinoco : Panier</title>
+</head>
+
+<body>
+  <header>
+    <div id="logo-orinoco"><img src="images/logo-orinoco.jpg" alt="Logo de Orinoco"></div>
+    <nav>
+      <div class="navicon">
+        <div></div>
+      </div>
+      <a href="index.html">Accueil</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Panier</h1>
+    <section>
+      <article id="teddy-shopping-cart">
+        <h2>Récapitulatif</h2>
+      </article>
+         </section>
+    <section id="teddy-form">
+      <h2>Formulaire de commande</h2>
+      <p>Remplir le formulaire pour valider la commande</p>
+      <form name="contact-form" id="contact-form" method="POST">
+        <div>
+          <label for="customer-last-name">Nom : </label><br />
+          <input type="text" id="customer-last-name" name="customer-last-name" placeholder="Ex: Martin" required
+            pattern="[a-zA-Z]{3,20}">
+        </div>
+        <div>
+          <label for="customer-first-name">Prénom : </label><br />
+          <input type="text" id="customer-first-name" name="customer-first-name" placeholder="Ex: Julien" required
+            pattern="[a-zA-Z]{3,20}">
+        </div>
+        <div>
+          <label for="customer-address">Adresse de livraison</label><br />
+          <input type="text" id="customer-address" name="customer-address" placeholder="Ex: 25 rue des Lilas" required
+            pattern="[0-9a-zA-Z ]{10,30}">
+        </div>
+        <div>
+          <label for="customer-city">Ville</label><br />
+          <input type="text" id="customer-city" name="customer-city" placeholder="Ex: Paris" required
+            pattern="[a-zA-Z]{5,12}">
+        </div>
+        <div>
+          <label for="code-zip">Code postal</label><br />
+          <input type="text" id="code-zip" name="code-zip" placeholder="Ex: 75020" required pattern="[0-9]{5}">
+        </div>
+        <div>
+          <label for="customer-email">Adresse e-mail</label>
+          <input type="email" id="customer-email" name="customer-email" placeholder="Ex: monadresse@mail.com" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </div>
+        <p id="error"></p>
+        <button type="submit" class="button" name="send-btn">Confirmer la commande</button>
+      </form>
+      <div id="error-message"></div>
+    </section>
+  </main>
+  <footer>
+    <h2>Orinoco</h2>
+         <ul>
+             <li><a href="#"></i>A propos d'Orinoco</a></li>
+             <li><a href="#">Mentions légales</a></li>
+             <li><a href="mailto:contact@orinoco.fr">Service Client</a></li>
+         </ul>
+ </footer>
+  <script src="./js/utils.js"></script>
+  <script src="./js/shopping-cart.js"></script>
+</body>
+
+</html>

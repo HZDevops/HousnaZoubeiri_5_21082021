@@ -2,36 +2,61 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <script src="https://kit.fontawesome.com/330caa293f.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/mobile.css" />
-    <link rel="stylesheet" href="css/desktop.css" />
-    <title>Teddy : Ours en peluche</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <script src="https://kit.fontawesome.com/330caa293f.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <title>Orinoco : Produits</title>
 </head>
 
 <body>
-    <main>
-        <div id="teddy-selected"></div>
-        <form>
-            <label for="teddy-color">Couleur : </label><br />
-                <select name="teddy-color" id="teddy-color">             
-                </select>
-         </form>
-        <button id="send-btn" type="submit" name="send-btn">Ajouter au panier</button>
-                   
-        
-    </main>
-    <footer>
-    </footer>
-
-    <script src="./js/product.js"></script>
+  <header>
+    <img src="images/logo-orinoco.jpg" alt="Logo de Orinoco">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="shopping-cart.html">Panier</a>
+    </nav>
+  </header>
+  <main>
+    <form id="add-to-cart-form" action="index.html" method="POST">
+      <div id="teddy-card" class="product-card"></div>
+      <div id="teddy-details">
+        <div class="product-info">
+          <label for="teddy-colors-select">Couleur : </label><br />
+          <select name="teddy-colors-select" id="teddy-colors-select">
+          </select>
+        </div>
+        <div class="product-info">
+          <label for="quantity">Quantité : </label><br />
+          <input type="number" id="quantity" name="quantity" placeholder="Ex: 10" required min="1" max="20">
+        </div>
+        <button type="submit" class="button" id="add-to-cart">Ajouter au panier</button>
+      </div>
+      <div id="pop-up" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>L'article a été ajouté au panier</p>
+        </div>
+      </div>
+    </form>
+    <div id="error-message"></div>
+  </main>
+  <footer>
+    <h2>Orinoco</h2>
+    <ul>
+      <li><a href="#"></i>A propos d'Orinoco</a></li>
+      <li><a href="#">Mentions légales</a></li>
+      <li><a href="mailto:contact@orinoco.fr">Service Client</a></li>
+    </ul>
+  </footer>
+  <script src="./js/utils.js"></script>
+  <script src="./js/product.js"></script>
 </body>
 
 </html>
