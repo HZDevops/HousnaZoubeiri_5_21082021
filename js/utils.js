@@ -2,7 +2,7 @@
  * Get string of characters from URL query string
  * @returns {string}
  */
-function getStringFromUrl() {
+function getStringFromUrl(id) {
   const queryStringUrl = window.location.search;
   const urlSearchParams = new URLSearchParams(queryStringUrl);
   const stringToGet = urlSearchParams.get('id');

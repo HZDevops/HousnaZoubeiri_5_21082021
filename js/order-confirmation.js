@@ -1,14 +1,14 @@
 //Display order Id and total amount on the order confirmation page
 function displayOrderInfoToHtml() {
   const orderHtmlContainer = document.getElementById('order-info');
-  const shoppingCartAmountHtml = getStringFromUrl();
+  let urlSearchParams = new URLSearchParams(window.location.search);
+  const orderIdForHtml = urlSearchParams.get('orderid');
+  shoppingCartAmountHtml = urlSearchParams.get('montant');
 
-  const orderIdForHtml = getFromLocalStorage('orinoco-order-info');
   orderHtmlContainer.innerHTML += `
-      <h3>Numéro de commande: ${orderIdForHtml.orderId}</h3>
-      <h3>Montant total de votre commande: ${shoppingCartAmountHtml} €</h3>
-      `;
+  <h3>Numéro de commande: ${orderIdForHtml}</h3>
+  <h3>Montant total de votre commande: ${shoppingCartAmountHtml} €</h3>
+  `;
 }
-
 displayOrderInfoToHtml();
-//localStorage.clear();
+localStorage.clear();
