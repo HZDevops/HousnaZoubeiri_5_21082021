@@ -149,7 +149,7 @@ input:invalid {
 }
 
 /***Pop-up****/
-/* The Modal - Background */
+/* Background */
 .modal {
     display: none;
     position: fixed;
@@ -163,7 +163,7 @@ input:invalid {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content - Box */
+/* Box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -171,7 +171,8 @@ input:invalid {
     border: 1px solid #888;
     width: 80%;
 }
-.modal-content p{
+
+.modal-content p {
     font-size: 1rem;
     font-weight: bold;
 }

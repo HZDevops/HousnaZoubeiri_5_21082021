@@ -68,7 +68,7 @@ const shoppingCartAmount = calculateShoppingCartAmount(
 );
 displayCartAmount();
 
-//Put form values in object and send order information to server for getting order Id
+//Put form values in object and send order to server for getting order Id
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -101,6 +101,7 @@ form.addEventListener('submit', function (e) {
         localStorage.setItem('orinoco-order-info', orderConfirmation.orderId);
         window.location =
           'order-confirmation.html?id=' + `${shoppingCartAmount}`;
+          localStorage.removeItem('orinoco-shopping-cart');
       })
       .catch(function (error) {
         document.getElementById('error-message').innerText =
