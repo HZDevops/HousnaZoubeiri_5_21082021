@@ -47,6 +47,12 @@ function displayCartAmount() {
   const cartAmountInHtml = `<span id="shopping-cart-amount"> Montant total : ${shoppingCartAmount}€</span>`;
   itemListInHtml.insertAdjacentHTML('beforeend', cartAmountInHtml);
 }
+=======
+
+  itemTotalPrice.push(JSON.parse(`${items.priceItem / 100}`));
+  itemQuantity.push(JSON.parse(`${items.quantity}`));
+});
+
 
 //Empty Shopping-Cart
 function emptyShoppingCart() {
@@ -74,6 +80,9 @@ form.addEventListener('submit', function (e) {
   e.preventDefault();
   const contact = {
     firstName: document.getElementById('customer-first-name').value,
+  //Put form values in object
+  const customerContact = {
+
     lastName: document.getElementById('customer-last-name').value,
     address: document.getElementById('customer-address').value,
     city: document.getElementById('customer-city').value,
