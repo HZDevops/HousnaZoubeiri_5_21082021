@@ -26,4 +26,8 @@ fetch('http://localhost:3000/api/teddies/')
  // Display error message information when promise before rejected
   .catch(function (error) {
        document.getElementById('error-message').innerText = 'Produit inaccessible';
+<<<<<<< HEAD
   });
+=======
+  });
+>>>>>>> 8d002315830a98de0d1ef1bb13951cdcce270ff5
