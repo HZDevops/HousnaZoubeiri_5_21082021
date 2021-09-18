@@ -35,7 +35,7 @@
     <section id="teddy-form">
       <h2>Formulaire de commande</h2>
       <p>Remplir le formulaire pour valider la commande</p>
-      <form name="contact-form" id="contact-form" method="POST" action="order-confirmation.html">
+      <form name="contact-form" id="contact-form" method="POST">
         <div>
           <label for="customer-last-name">Nom : </label><br />
           <input type="text" id="customer-last-name" name="customer-last-name" placeholder="Ex: Martin" required
@@ -68,7 +68,7 @@
         <p id="error"></p>
         <button type="submit" class="button" name="send-btn">Confirmer la commande</button>
       </form>
-
+      <div id="error-message"></div>
     </section>
   </main>
   <footer>

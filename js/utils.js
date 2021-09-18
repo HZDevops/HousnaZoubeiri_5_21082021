@@ -25,17 +25,3 @@ function saveToLocalStorage(key, value) {
 function getFromLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
-
-/**
- * Calculate the total price of a shopping-cart
- * @param {Array} price 
- * @param {Array} quantity 
- * @returns {number}
- */
-function calculateShoppingCartAmount(price, quantity) {
-  let totalPrice = 0;
-  for (let i = 0; i < price.length; i++) {
-    totalPrice += price[i] * quantity[i];
-  }
-  return totalPrice;
-}

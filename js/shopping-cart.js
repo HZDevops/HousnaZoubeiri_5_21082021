@@ -1,22 +1,19 @@
-// Get items in local Storage
+// Get items in localStorage
 const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
-
-// Display items on shopping-cart page if items in localStorage
 const itemListInHtml = document.getElementById('teddy-shopping-cart');
 const itemTotalPrice = [];
 const itemQuantity = [];
 const products = [];
 
-// Display message if shopping-cart empty
-if (!shoppingCart) {
-  const emptyCart = document.createElement('p');
-  itemListInHtml.appendChild(emptyCart);
-  emptyCart.textContent = 'Votre panier est vide !';
-
-  //Display items if shopping cart full
-} else {
-  shoppingCart.forEach(function (item) {
-    itemListInHtml.innerHTML += `
+// Display items on shopping-cart page if items in localStorage
+function displayShoppingCart() {
+  if (!shoppingCart) {
+    const emptyCart = document.createElement('p');
+    itemListInHtml.appendChild(emptyCart);
+    emptyCart.textContent = 'Votre panier est vide !';
+  } else {
+    shoppingCart.forEach(function (item) {
+      itemListInHtml.innerHTML += `
       <div class="teddy-cart">
         <img src="${item.imageUrl}" alt="teddy selected by customer" />
         <div class="teddy-info">
@@ -29,40 +26,52 @@ if (!shoppingCart) {
         }€</span>
       </div>
     `;
-    products.push(item._id);
-    itemTotalPrice.push(item.price / 100);
-    itemQuantity.push(item.quantity);
-  });
+      products.push(item._id);
+      itemTotalPrice.push(item.price / 100);
+      itemQuantity.push(item.quantity);
+    });
+  }
+}
 
-  //Empty Shopping-Cart
+//Calculate shopping-cart amount
+function calculateShoppingCartAmount(price, quantity) {
+  let totalPrice = 0;
+  for (let i = 0; i < price.length; i++) {
+    totalPrice += price[i] * quantity[i];
+  }
+  return totalPrice;
+}
+
+//Display the shopping-cart amount on html
+function displayCartAmount() {
+  const cartAmountInHtml = `<span id="shopping-cart-amount"> Montant total : ${shoppingCartAmount}€</span>`;
+  itemListInHtml.insertAdjacentHTML('beforeend', cartAmountInHtml);
+}
+
+//Empty Shopping-Cart
+function emptyShoppingCart() {
   const btnEmptyShoppingCartInHtml = `<button id="garbage-button">Vider le panier<i class="fas fa-trash-alt"></i></button>`;
   itemListInHtml.insertAdjacentHTML('beforeend', btnEmptyShoppingCartInHtml);
   const btnEmptyShoppingCart = document.getElementById('garbage-button');
   btnEmptyShoppingCart.addEventListener('click', function (e) {
     e.preventDefault();
-
-    // Remove items in localStorage
     localStorage.removeItem('orinoco-shopping-cart');
     window.location.href = 'shopping-cart.html';
   });
 }
 
-//Calculate shopping-cart amount
+displayShoppingCart();
+emptyShoppingCart();
 const shoppingCartAmount = calculateShoppingCartAmount(
   itemTotalPrice,
   itemQuantity
 );
+displayCartAmount();
 
-//Display the shopping-cart amount on html
-const cartAmountInHtml = `<span id="shopping-cart-amount"> Montant total : ${shoppingCartAmount}€</span>`;
-itemListInHtml.insertAdjacentHTML('beforeend', cartAmountInHtml);
-
-//Save the shopping-cart amount in localStorage
-saveToLocalStorage('shopping-cart-amount', shoppingCartAmount);
-
-//Put form values in object
+//Put form values in object and send order information to server for getting order Id
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', function (e) {
+  e.preventDefault();
   const contact = {
     firstName: document.getElementById('customer-first-name').value,
     lastName: document.getElementById('customer-last-name').value,
@@ -72,5 +81,30 @@ form.addEventListener('submit', function (e) {
   };
 
   const payload = { contact, products };
-  saveToLocalStorage('orinoco-order-info', payload);
+
+  // Post order information to server and save server response (order Id) in localStorage
+  function getOrderId(orderData) {
+    fetch('http://localhost:3000/api/teddies/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(orderData),
+    })
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then(function (data) {
+        const orderConfirmation = data;
+        localStorage.setItem('orinoco-order-info', orderConfirmation.orderId);
+        window.location =
+          'order-confirmation.html?id=' + `${shoppingCartAmount}`;
+      })
+      .catch(function (error) {
+        alert('Erreur');
+      });
+  }
+  getOrderId(payload);
 });

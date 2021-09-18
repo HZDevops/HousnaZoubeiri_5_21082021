@@ -6,7 +6,7 @@ const popUpCross = document.getElementsByClassName('close')[0];
 const itemIdInUrl = getStringFromUrl();
 
 // Display item details on product page when item is selected
-function addItemToHtml(item) {
+function addItemToHtml (item) {
   const itemHtmlContainer = document.getElementById('teddy-card');
 
   itemHtmlContainer.innerHTML += `
@@ -26,7 +26,7 @@ function addItemToHtml(item) {
 }
 
 // Add a new item in localStorage
-function addItemToLocalStorage(item) {
+function addItemToLocalStorage (item) {
   const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
 
   if (!shoppingCart) {
@@ -38,7 +38,7 @@ function addItemToLocalStorage(item) {
 }
 
 //Display a pop-up when user add an item in shopping-cart
-function displayPopUp() {
+function displayPopUp () {
   popUpInHtml.style.display = 'block';
   popUpCross.addEventListener('click', function (e) {
     e.preventDefault();
@@ -51,7 +51,8 @@ function displayPopUp() {
   });
 }
 
-function addItemToCart() {
+//Add item to shopping-cart
+function addItemToCart () {
   fetch(`http://localhost:3000/api/teddies/${itemIdInUrl}`)
     .then(function (response) {
       if (response.ok) {
@@ -86,3 +87,4 @@ function addItemToCart() {
         'Serveur momentanémment indisponible';
     });
 }
+addItemToCart();
