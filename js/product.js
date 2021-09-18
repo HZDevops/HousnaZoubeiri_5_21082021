@@ -84,14 +84,7 @@ function addItemToCart () {
     })
     .catch(function (error) {
       document.getElementById('error-message').innerText =
-<<<<<<< HEAD
         'Produit inaccessible';
     });
 }
 addItemToCart();
-=======
-        'Serveur momentanémment indisponible';
-    });
-}
-addItemToCart();
->>>>>>> 8d002315830a98de0d1ef1bb13951cdcce270ff5
