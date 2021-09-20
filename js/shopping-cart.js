@@ -1,5 +1,6 @@
 // Get items in localStorage
 const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
+console.log(shoppingCart);
 const itemListInHtml = document.getElementById('teddy-shopping-cart');
 const itemTotalPrice = [];
 const itemQuantity = [];

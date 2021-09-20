@@ -6,7 +6,7 @@ function displayOrderInfoToHtml() {
   shoppingCartAmountHtml = urlSearchParams.get('montant');
 
   orderHtmlContainer.innerHTML += `
-  <h3>Numéro de commande: ${orderIdForHtml}</h3>
+  <h3>Numéro de commande:</br> ${orderIdForHtml}</h3>
   <h3>Montant total de votre commande: ${shoppingCartAmountHtml} €</h3>
   `;
 }
