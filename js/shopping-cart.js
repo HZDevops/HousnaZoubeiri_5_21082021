@@ -1,24 +1,11 @@
-// Get items in localStorage
+// Get items from localStorage
 const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
-console.log(shoppingCart);
 const itemListInHtml = document.getElementById('teddy-shopping-cart');
 const itemTotalPrice = [];
 const itemQuantity = [];
 const products = [];
 
-//Empty Shopping-Cart
-function emptyShoppingCart() {
-  const btnEmptyShoppingCartInHtml = `<button id="garbage-button">Vider le panier<i class="fas fa-trash-alt"></i></button>`;
-  itemListInHtml.insertAdjacentHTML('beforeend', btnEmptyShoppingCartInHtml);
-  const btnEmptyShoppingCart = document.getElementById('garbage-button');
-  btnEmptyShoppingCart.addEventListener('click', function (e) {
-    e.preventDefault();
-    localStorage.removeItem('orinoco-shopping-cart');
-    window.location.href = 'shopping-cart.html';
-  });
-}
-
-// Display items on shopping-cart page if items in localStorage
+// Display item(s) on shopping-cart page if items in localStorage
 function displayShoppingCart() {
   if (!shoppingCart) {
     const emptyCart = document.createElement('p');
@@ -43,7 +30,6 @@ function displayShoppingCart() {
       itemTotalPrice.push(item.price / 100);
       itemQuantity.push(item.quantity);
     });
-    emptyShoppingCart();
   }
 }
 
@@ -56,58 +42,77 @@ function calculateShoppingCartAmount(price, quantity) {
   return totalPrice;
 }
 
-//Display the shopping-cart amount on html
-function displayCartAmount() {
-  const cartAmountInHtml = `<span id="shopping-cart-amount"> Montant total : ${shoppingCartAmount}€</span>`;
-  itemListInHtml.insertAdjacentHTML('beforeend', cartAmountInHtml);
-}
-
 displayShoppingCart();
 const shoppingCartAmount = calculateShoppingCartAmount(
   itemTotalPrice,
   itemQuantity
 );
-displayCartAmount();
 
-//Put form values in object and send order to server for getting order Id
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const contact = {
-    firstName: document.getElementById('customer-first-name').value,
-    lastName: document.getElementById('customer-last-name').value,
-    address: document.getElementById('customer-address').value,
-    city: document.getElementById('customer-city').value,
-    email: document.getElementById('customer-email').value,
-  };
+//Display the shopping-cart amount
+const cartAmountInHtml = document.getElementById('shopping-cart-amount');
+cartAmountInHtml.innerText = `Montant total : ${shoppingCartAmount}€`;
 
-  const payload = { contact, products };
-
-  // Post order information to server and save server response (order Id) in localStorage
-  function getOrderId(orderData) {
-    fetch('http://localhost:3000/api/teddies/order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(orderData),
-    })
-      .then(function (response) {
-        if (response.ok) {
-          return response.json();
-        }
-      })
-      .then(function (data) {
-        const orderConfirmation = data;
-        //localStorage.setItem('orinoco-order-info', orderConfirmation.orderId);
-        window.location =
-          'order-confirmation.html?orderid=' + `${orderConfirmation.orderId}` + '&montant=' + `${shoppingCartAmount}`;
-          //localStorage.removeItem('orinoco-shopping-cart');
-      })
-      .catch(function (error) {
-        document.getElementById('error-message').innerText =
-          'Serveur momentanémment indisponible';
-      });
-  }
-  getOrderId(payload);
+//Empty shopping-cart
+const EmptyShoppingCartButton = document.getElementById('garbage-button');
+EmptyShoppingCartButton.addEventListener('click', function (e) {
+  localStorage.removeItem('orinoco-shopping-cart');
+  window.location.href = 'shopping-cart.html';
 });
+
+//Put shopping-cart form values in an object and send to server for getting order Id if shopping-cart not empty
+function sendShoppinCartToServer() {
+  const form = document.getElementById('contact-form');
+  const shoppingCartSendButton = document.getElementById('send-btn');
+
+  if (shoppingCartAmount === 0) {
+    shoppingCartSendButton.disabled = true;
+  } else {
+    shoppingCartSendButton.disabled = false;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const contact = {
+        firstName: document.getElementById('customer-first-name').value,
+        lastName: document.getElementById('customer-last-name').value,
+        address: document.getElementById('customer-address').value,
+        city: document.getElementById('customer-city').value,
+        email: document.getElementById('customer-email').value,
+      };
+
+      const payload = { contact, products };
+
+      // Post order information to server and save server response (order Id) in localStorage
+      function getOrderId(orderData) {
+        fetch('http://localhost:3000/api/teddies/order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(orderData),
+        })
+          .then(function (response) {
+            if (response.ok) {
+              return response.json();
+            }
+          })
+          .then(function (data) {
+            const orderConfirmation = data;
+            //localStorage.setItem('orinoco-order-info', orderConfirmation.orderId);
+            window.location =
+              'order-confirmation.html?orderid=' +
+              `${orderConfirmation.orderId}` +
+              '&montant=' +
+              `${shoppingCartAmount}`;
+            //localStorage.removeItem('orinoco-shopping-cart');
+          })
+          .catch(function (error) {
+            document.getElementById('error-message').innerText =
+              'Serveur momentanémment indisponible';
+          });
+      }
+      getOrderId(payload);
+    });
+  }
+}
+
+sendShoppinCartToServer();

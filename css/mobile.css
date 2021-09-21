@@ -89,7 +89,7 @@
 /**** Shopping-cart page****/
 #teddy-shopping-cart {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     justify-content: end;
     background-color: rgba(243, 233, 241, 1);
     padding-top: 20px;

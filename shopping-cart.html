@@ -27,6 +27,8 @@
     <section>
       <h2>Récapitulatif</h2>
       <div id="teddy-shopping-cart">
+        <button id="garbage-button">Vider le panier<i class="fas fa-trash-alt"></i></button>
+        <span id="shopping-cart-amount"></span>
       </div>
     </section>
     <section id="teddy-form">
@@ -62,7 +64,7 @@
           <input type="email" id="customer-email" name="customer-email" placeholder="Ex: monadresse@mail.com" required>
         </div>
         <p id="error"></p>
-        <button type="submit" class="button" name="send-btn">Confirmer la commande</button>
+        <button type="submit" class="button" id="send-btn" name="send-btn">Confirmer la commande</button>
       </form>
       <div id="error-message"></div>
     </section>

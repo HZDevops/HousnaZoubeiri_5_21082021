@@ -1,16 +1,16 @@
-const AddToCartButton = document.getElementById('add-to-cart-form');
+const addToCartButton = document.getElementById('add-to-cart-form');
 const popUpInHtml = document.getElementById('pop-up');
 const popUpCross = document.getElementsByClassName('close')[0];
 
-//Get item id from URL query string
+//Get an item id from URL query string
 function getItemIdFromUrl() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const itemIdInUrl = urlSearchParams.get('id');
   return itemIdInUrl;
 }
 
-// Display item details on product page when item is selected
-function addItemToHtml(item) {
+// Display an item details on product page
+function displayItemOnHtml(item) {
   const itemHtmlContainer = document.getElementById('teddy-card');
 
   itemHtmlContainer.innerHTML += `
@@ -19,7 +19,6 @@ function addItemToHtml(item) {
       <p>${item.description}</p>
       <span>Prix: ${item.price / 100} €</span>
     `;
-  // Display item's options
   item.colors.forEach(function (option) {
     const itemOptionsSelectHtml = document.getElementById(
       'teddy-colors-select'
@@ -29,8 +28,8 @@ function addItemToHtml(item) {
   });
 }
 
-// Add a new item in localStorage
-function addItemToLocalStorage(item) {
+// Add a new item in shopping-cart
+function addItemToShoppingCart(item) {
   const shoppingCart = getFromLocalStorage('orinoco-shopping-cart');
 
   if (!shoppingCart) {
@@ -55,10 +54,10 @@ function displayPopUp() {
   });
 }
 
-itemId = getItemIdFromUrl();
+const itemId = getItemIdFromUrl();
 
-//Add item to shopping-cart
-function addItemToCart() {
+//Get an item from server before displaying it with displayItemOnHtml and adding to shopping-cart
+function onPageLoaded() {
   fetch(`http://localhost:3000/api/teddies/${itemId}`)
     .then(function (response) {
       if (response.ok) {
@@ -68,11 +67,10 @@ function addItemToCart() {
     .then(function (data) {
       item = data;
 
-      // Make item HTML card
-      addItemToHtml(item);
+      displayItemOnHtml(item);
 
       // Add item in shopping-cart
-      AddToCartButton.addEventListener('submit', function (e) {
+      addToCartButton.addEventListener('submit', function (e) {
         e.preventDefault();
         const itemOptionsSelect = document.getElementById(
           'teddy-colors-select'
@@ -84,7 +82,7 @@ function addItemToCart() {
           quantity: itemQuantity,
           option: itemOptionsSelect.value,
         };
-        addItemToLocalStorage(selectedItem);
+        addItemToShoppingCart(selectedItem);
         displayPopUp();
       });
     })
@@ -94,4 +92,4 @@ function addItemToCart() {
     });
 }
 
-addItemToCart();
+onPageLoaded();

@@ -13,7 +13,7 @@ function displayItems(itemsForSale) {
   });
 }
 
-//Call API for fetching resources
+//Get all items from API
 function getItems() {
   fetch('http://localhost:3000/api/teddies/')
     .then(function (response) {
@@ -21,12 +21,10 @@ function getItems() {
         return response.json();
       }
     })
-    //Get from API an array of product objects
     .then(function (data) {
       const itemsData = data;
       displayItems(itemsData);
     })
-    // Display error message information when promise before rejected
     .catch(function (error) {
       document.getElementById('error-message').innerText =
         'Produit inaccessible';

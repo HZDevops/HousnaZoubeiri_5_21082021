@@ -144,6 +144,10 @@ footer ul li a:hover {
     box-shadow: 6px 6px 6px 6px #d1d0d0;
 }
 
+.button:disabled {
+    color: gray;
+}
+
 input:invalid {
     border: 2px solid blueviolet;
 }
