@@ -97,13 +97,11 @@ function sendShoppinCartToServer() {
           })
           .then(function (data) {
             const orderConfirmation = data;
-            //localStorage.setItem('orinoco-order-info', orderConfirmation.orderId);
             window.location =
               'order-confirmation.html?orderid=' +
               `${orderConfirmation.orderId}` +
               '&montant=' +
               `${shoppingCartAmount}`;
-            //localStorage.removeItem('orinoco-shopping-cart');
           })
           .catch(function (error) {
             document.getElementById('error-message').innerText =
