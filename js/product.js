@@ -46,10 +46,12 @@ function displayPopUp() {
   popUpCross.addEventListener('click', function (e) {
     e.preventDefault();
     popUpInHtml.style.display = 'none';
+    window.location = 'index.html';
   });
   window.addEventListener('click', function (e) {
     if (e.target === popUpInHtml) {
       popUpInHtml.style.display = 'none';
+      window.location = 'index.html';
     }
   });
 }
