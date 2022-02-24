@@ -1,10 +1,12 @@
 # Orinoco #
 
-This is the back end server for Project 5 of the Junior Web Developer path.
+This is the front-end for Project 5 of the Junior Web Developer path.
+The back end (see folder server) is provided in this project.
+
 
 ### Prerequisites ###
 
-You will need to have Node and `npm` installed locally on your machine.
+For server, you will need to have Node and `npm` installed locally on your machine.
 
 ### Installation ###
 
