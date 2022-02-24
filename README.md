@@ -1,7 +1,7 @@
 # Orinoco #
 
-This is the front-end for Project 5 of the Junior Web Developer path.
-The back end (see folder server) is provided in this project.
+This is the front-end with JavaScript code to interact with API.
+The back end API (see folder server) is provided in this project.
 
 
 ### Prerequisites ###
